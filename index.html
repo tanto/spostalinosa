@@ -12,44 +12,49 @@
 <body>
 
 	<div style="width:100%; height:100%" id="map"></div>
-<script type='text/javascript'>
-var map = new L.Map('map', {center: new L.LatLng(35.8643,12.8677), zoom: 13});
-var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-var ggl = new L.Google();
-var ggl2 = new L.Google('TERRAIN');
-var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
+	<script type='text/javascript'>
+	var map = new L.Map('map', {center: new L.LatLng(35.8643,12.8677), zoom: 13});
+	var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+	var ggl = new L.Google();
+	var ggl2 = new L.Google('TERRAIN');
+	var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
 
-var southWest = L.latLng(35.8531,12.8442),
-			northEast = L.latLng(35.8779,12.8837),
-			bounds = L.latLngBounds(southWest, northEast);
+	var southWest = L.latLng(35.8531,12.8442),
+	northEast = L.latLng(35.8779,12.8837),
+	bounds = L.latLngBounds(southWest, northEast);
 
-			map.fitBounds(bounds);
+	map.fitBounds(bounds);
 
-function onEachFeature(feature, layer) {
-			var popupContent = "<p>I started out as a GeoJSON " +
-					feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+	function onEachFeature(feature, layer) {
+		var popupContent = "<p>I started out as a GeoJSON " +
+		feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
 
-			if (feature.properties && feature.properties.popupContent) {
-				popupContent += feature.properties.popupContent;
-			}
-
-			layer.bindPopup(popupContent);
+		if (feature.properties && feature.properties.popupContent) {
+			popupContent += feature.properties.popupContent;
 		}
 
-
-L.geoJson(linosa, {
-
-			onEachFeature: onEachFeature
-		}).addTo(map);
+		layer.bindPopup(popupContent);
+	}
 
 
+	L.geoJson(linosa, {
 
-map.addLayer(ggl);
-map.addControl(new L.Control.Layers( {'OSM':osm, 'Google':ggl, 'Bing maps':bing}, {}));
+		onEachFeature: onEachFeature
+	}).addTo(map);
 
 
 
-</script>
- 
+	map.addLayer(ggl);
+	map.addControl(new L.Control.Layers( {'Google':ggl, 'OSM':osm, 'Bing maps':bing}, {}));
+
+	var marker1 = L.marker([0, 0]).addTo(map);
+	marker1.setLatLng(map.getCenter());
+	map.on('move', function () {
+		marker1.setLatLng(map.getCenter());
+	});
+
+
+	</script>
+
 </body>
 </html>
