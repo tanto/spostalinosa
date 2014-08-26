@@ -19,6 +19,11 @@ var ggl = new L.Google();
 var ggl2 = new L.Google('TERRAIN');
 var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
 
+var southWest = L.latLng(35.8531,12.8442),
+			northEast = L.latLng(35.8779,12.8837),
+			bounds = L.latLngBounds(southWest, northEast);
+
+			map.fitBounds(bounds);
 
 function onEachFeature(feature, layer) {
 			var popupContent = "<p>I started out as a GeoJSON " +
