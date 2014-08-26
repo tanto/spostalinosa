@@ -17,6 +17,8 @@ var map = new L.Map('map', {center: new L.LatLng(35.8643,12.8677), zoom: 13});
 var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 var ggl = new L.Google();
 var ggl2 = new L.Google('TERRAIN');
+var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
+map.addLayer(bing);
 
 function onEachFeature(feature, layer) {
 			var popupContent = "<p>I started out as a GeoJSON " +
@@ -38,7 +40,7 @@ L.geoJson(linosa, {
 
 
 map.addLayer(ggl);
-map.addControl(new L.Control.Layers( {'OSM':osm, 'Google':ggl, 'Google Terrain':ggl2}, {}));
+map.addControl(new L.Control.Layers( {'OSM':osm, 'Google':ggl, 'Bing maps':bing}, {}));
 
 
 
