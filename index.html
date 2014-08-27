@@ -12,7 +12,12 @@
 
 	<div style="width:100%; height:100%" id="map"></div>
 	<script type='text/javascript'>
-	var map = new L.Map('map', {center: new L.LatLng(35.8643,12.8677), zoom: 13});
+
+	var southWestB = L.latLng(35.8345,12.8188),
+	northEastB = L.latLng(35.8897,12.9088),
+	boundsB = L.latLngBounds(southWestB, northEastB);
+
+	var map = new L.Map('map', {center: new L.LatLng(35.8643,12.8677), zoom: 13,maxBounds: boundsB,minZoom:13,maxZoom:18});
 	var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 		attribution: "© <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
 	});
@@ -32,6 +37,10 @@
 	var southWest = L.latLng(35.8531,12.8442),
 	northEast = L.latLng(35.8779,12.8837),
 	bounds = L.latLngBounds(southWest, northEast);
+
+	
+
+
 
 	map.fitBounds(bounds);
 
