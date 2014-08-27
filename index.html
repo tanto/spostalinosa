@@ -16,8 +16,14 @@
 	var map = new L.Map('map', {center: new L.LatLng(35.8643,12.8677), zoom: 13});
 	var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 	var ggl = new L.Google();
-	var ggl2 = new L.Google('TERRAIN');
+	//var ggl2 = new L.Google('TERRAIN');
 	var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
+
+	var sitrsic = L.tileLayer.wms("http://map.sitr.regione.sicilia.it/ArcGIS/services/CACHED/ortofoto_ata20072008_webmercatore/MapServer/WMSServer?", {
+		layers: '0',
+		format: 'image/jpeg',
+		attribution: "SITR Regione Siciliana",
+	});    
 
 	var southWest = L.latLng(35.8531,12.8442),
 	northEast = L.latLng(35.8779,12.8837),
@@ -45,7 +51,7 @@
 
 
 	map.addLayer(ggl);
-	map.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm, 'Google':ggl}, {}));
+	map.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm, 'Google':ggl, 'SITR':sitrsic}, {}));
 
 	var marker1 = L.marker([0, 0]).addTo(map);
 	marker1.setLatLng(map.getCenter());
