@@ -54,7 +54,7 @@
 
 
 	map.addLayer(sitrsic);
-	map.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm, 'SITR':sitrsic}, {}));
+	map.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm, 'SITR':sitrsic}, {},{collapsed:false}));
 
 	var marker1 = L.marker([0, 0]).addTo(map);
 	marker1.setLatLng(map.getCenter());
