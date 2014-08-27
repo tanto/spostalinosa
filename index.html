@@ -36,7 +36,7 @@
 	map.fitBounds(bounds);
 
 	function onEachFeature(feature, layer) {
-		var popupContent = "<p>Ho fatto il tracking di questa strada a Linosa; se cambi layer di base vedrai che le basi Bing e OSM sono da spostare</p>";
+		var popupContent = "<p>Ho fatto il tracking di questa strada a Linosa; se cambi layer di base vedrai che le basi <strong>Bing</strong> e <strong>OSM</strong> sono da spostare.</p>";
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
