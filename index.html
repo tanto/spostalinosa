@@ -4,7 +4,6 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
-	<script src="./plugin/layer/tile/Google.js"></script>
 	<script src="./plugin/layer/tile/Bing.js"></script>
 	<script src="./linosa.js"></script>
 
@@ -17,7 +16,7 @@
 	var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 		attribution: "© <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
 	});
-	var ggl = new L.Google();
+	//var ggl = new L.Google();
 	//var ggl2 = new L.Google('TERRAIN');
 	var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
 
@@ -37,8 +36,7 @@
 	map.fitBounds(bounds);
 
 	function onEachFeature(feature, layer) {
-		var popupContent = "<p>I started out as a GeoJSON " +
-		feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+		var popupContent = "<p>Ho fatto il tracking di questa strada a Linosa; se cambi layer di base vedrai che le basi Bing e OSM sono da spostare</p>";
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
@@ -55,8 +53,8 @@
 
 
 
-	map.addLayer(ggl);
-	map.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm, 'Google':ggl, 'SITR':sitrsic}, {}));
+	map.addLayer(sitrsic);
+	map.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm, 'SITR':sitrsic}, {}));
 
 	var marker1 = L.marker([0, 0]).addTo(map);
 	marker1.setLatLng(map.getCenter());
