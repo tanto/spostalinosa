@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <title>C'&egrave; da spostare Linosa</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
 
@@ -63,13 +64,13 @@
     map2.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm}, {},{collapsed:false}));
 
     function onEachFeature(feature, layer) {
-        var popupContent = "<p>Ho fatto il tracking di questa strada a Linosa; se cambi layer di base vedrai che le basi <strong>Bing</strong> e <strong>OSM</strong> sono da spostare.</p>";
+        var popupContent = "<p>ciao mondo</p>";
 
         if (feature.properties && feature.properties.popupContent) {
             popupContent += feature.properties.popupContent;
         }
 
-        layer.bindPopup(popupContent);
+        //layer.bindPopup(popupContent);
     }
 
 
