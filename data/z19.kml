@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml><GroundOverlay><name>z19.png</name><color>88ffffff</color><Icon>
+<href>z19.png</href>
+<viewBoundScale>0.75</viewBoundScale></Icon><LatLonBox>
+<north>35.8809704475256</north>
+<south>35.8490045797082</south>
+<east>12.8982496261597</east>
+<west>12.8350299596786</west>
+</LatLonBox></GroundOverlay></kml>
