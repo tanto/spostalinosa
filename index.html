@@ -11,11 +11,56 @@
     #map1, #map2 { width: 49.5%; height: 100%; }
     #map1 { float: left; }
     #map2 { float: right; }
+
+    #map-ui {
+        position: absolute;
+        bottom: 2px;
+        left: 2px;
+        z-index: 100;
+        border-width: 1px;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        border-radius: 3px 3px 3px 3px;
+        background: #2B82CB;
+        border-color: #2B82CB;
+        border-top-color: #FFF;
+        padding: 2px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 60px;
+        font-size: 14px;
+    }
+    #map-ui p {
+        padding: 0px;
+        margin: 0px 2px 0px 2px;
+        color: #FFFFFF;
+        font-size: 14px;
+    }
+    #map-ui img {
+        padding: 0px;
+        margin: 0px;
+    }
+    #map-ui a:link { 
+        color: #FFF;
+    }
+    #map-ui a:visited { 
+        color: #FFF;
+    }
+    #map-ui a:hover {
+        color: #FFF;
+    }
+    #map-ui a:active { 
+        color: #FFF;
+    }
+
     </style>
 </head>
 
 <body>
-    <div id="map1"></div>
+    <div id="map1">
+        <div id="map-ui">
+            <p>Andrea Borruso per <strong><a href="http://blog.spaziogis.it/?p=6377" target="_blank">TANTO</a></strong></p>
+        </div>
+    </div>
     <div id="map2"></div>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet-src.js"></script>
     <script src="./plugin/L.Map.Sync.js"></script>
