@@ -96,6 +96,7 @@
     });
 
 
+
     var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
 
     var map1 = L.map('map1', {layers: [sitrsic],maxBounds: boundsB,minZoom:13,maxZoom:18});
@@ -105,6 +106,11 @@
     map1.attributionControl.setPrefix('');
 
     var map2 = L.map('map2');
+
+    var osm_old = new L.tileLayer('data/tiles_20140904/{z}/{x}/{y}.png', {
+                tms: true,
+                opacity: 1,
+            }).addTo(map2);
 
     map1.sync(map2);
     map2.sync(map1);
