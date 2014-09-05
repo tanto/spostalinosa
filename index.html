@@ -95,6 +95,11 @@
         attribution: "© <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
     });
 
+    var osm_old = L.tileLayer('data/tiles_20140904/{z}/{x}/{y}.png', {
+                tms: true,
+                opacity: 1,
+            }).addTo(map2);
+
 
     var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
 
