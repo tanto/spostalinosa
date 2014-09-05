@@ -95,6 +95,10 @@
         attribution: "© <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
     });
 
+    var osm_old = new L.tileLayer('data/tiles_20140904/{z}/{x}/{y}.png', {
+        tms: true,
+        opacity: 1,
+    });
 
 
     var bing = new L.BingLayer("AuAHZ8dN05taF2Vo9n1C06pMPnDWHWSmlgA8dtCaQNpKcIphdPsN27KZiQ9iwpGB");
@@ -107,16 +111,13 @@
 
     var map2 = L.map('map2');
 
-    var osm_old = new L.tileLayer('data/tiles_20140904/{z}/{x}/{y}.png', {
-                tms: true,
-                opacity: 1,
-            }).addTo(map2);
+
 
     map1.sync(map2);
     map2.sync(map1);
 
     map2.addLayer(bing);
-    map2.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm}, {},{collapsed:false}));
+    map2.addControl(new L.Control.Layers( {'Bing maps':bing, 'OSM':osm,'OSM vecchia':osm_old}, {},{collapsed:false}));
 
     function onEachFeature(feature, layer) {
         var popupContent = "<p>ciao mondo</p>";
